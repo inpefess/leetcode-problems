@@ -20,7 +20,7 @@ from typing import Dict
 
 
 class Solution:
-    """ Can be copied and pasted to LeetCode site. """
+    """ Linear time complexity. """
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         Given a string, find the length of the longest substring without
