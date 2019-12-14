@@ -33,7 +33,7 @@ class Solution:
         dict_nums: Dict[int, Set[int]] = dict()
         for i in range(list_len):
             num = nums[i]
-            if num in dict_nums:y
+            if num in dict_nums:
                 dict_nums[num].add(i)
             else:
                 dict_nums[num] = {i}
