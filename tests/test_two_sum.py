@@ -18,13 +18,16 @@
 """
 from unittest import TestCase
 
-from leetcode_problems.two_sum import Solution
+from parameterized import parameterized
+
+from leetcode_problems.two_sum import Solution, Solution2
 
 
 class TestTwoSum(TestCase):
-    def test_two_sum(self):
+    @parameterized.expand([(Solution,), (Solution2,)])
+    def test_two_sum(self, solution):
         self.assertEqual(
-            Solution().twoSum(
+            solution().twoSum(
                 nums=[2, 7, 11, 15],
                 target=9
             ),

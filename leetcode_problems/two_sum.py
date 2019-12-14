@@ -16,11 +16,11 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from typing import List
+from typing import Dict, List, Set
 
 
 class Solution:
-    """ constant additional memory, O(n^2) time """
+    """ linear additional memory, linear time """
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         finds two items of a list which sum up to a given target
@@ -29,9 +29,35 @@ class Solution:
         :param target: a sum of two unknown list items
         :returns: a list of two indices
         """
-        array_size = len(nums)
-        for i in range(array_size):
-            for j in range(i + 1, array_size):
+        list_len = len(nums)
+        dict_nums: Dict[int, Set[int]] = dict()
+        for i in range(list_len):
+            num = nums[i]
+            if num in dict_nums:y
+                dict_nums[num].add(i)
+            else:
+                dict_nums[num] = {i}
+        for i in range(list_len):
+            remainder = target - nums[i]
+            set_of_indices = dict_nums.get(remainder, set()) - {i}
+            if set_of_indices:
+                return [i, set_of_indices.pop()]
+        return [-1, -1]
+
+
+class Solution2:
+    """ constant additional memory, quadratic time """
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """
+        finds two items of a list which sum up to a given target
+
+        :param nums: a list of integers
+        :param target: a sum of two unknown list items
+        :returns: a list of two indices
+        """
+        list_len = len(nums)
+        for i in range(list_len):
+            for j in range(i + 1, list_len):
                 if nums[i] + nums[j] == target:
                     return [i, j]
         return [-1, -1]
