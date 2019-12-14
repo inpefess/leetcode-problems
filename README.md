@@ -1,2 +1,4 @@
-# leetcode-problems
-Python 3 solutions to problems from LeetCode
+# Leetcode Problems
+
+Python 3 solutions to problems from
+(LeetCode)[https://leetcode.com/].
