@@ -20,23 +20,22 @@ from unittest import TestCase
 
 from parameterized import parameterized
 
-from leetcode_problems.two_sum import Solution, Solution2
+from leetcode_problems.palindrome_number import Solution
 
 
-class TestTwoSum(TestCase):
-    @parameterized.expand([(Solution,), (Solution2,)])
-    def test_two_sum(self, solution):
+class TestSolution(TestCase):
+    @parameterized.expand([
+        (121, True),
+        (-121, False),
+        (10, False),
+        (0, True),
+        (1, True),
+        (22, True),
+        (1991, True),
+        (334, False)
+    ])
+    def test_reverse(self, x, is_palindrome):
         self.assertEqual(
-            solution().twoSum(
-                nums=[2, 7, 7, 11, 15],
-                target=18
-            ),
-            [1, 3]
-        )
-        self.assertEqual(
-            solution().twoSum(
-                nums=[1, 2],
-                target=9
-            ),
-            [-1, -1]
+            Solution().isPalindrome(x),
+            is_palindrome
         )

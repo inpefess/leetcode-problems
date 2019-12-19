@@ -16,27 +16,29 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from unittest import TestCase
-
-from parameterized import parameterized
-
-from leetcode_problems.two_sum import Solution, Solution2
 
 
-class TestTwoSum(TestCase):
-    @parameterized.expand([(Solution,), (Solution2,)])
-    def test_two_sum(self, solution):
-        self.assertEqual(
-            solution().twoSum(
-                nums=[2, 7, 7, 11, 15],
-                target=18
-            ),
-            [1, 3]
-        )
-        self.assertEqual(
-            solution().twoSum(
-                nums=[1, 2],
-                target=9
-            ),
-            [-1, -1]
-        )
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        """
+        Determine whether an integer is a palindrome. An integer is a
+        palindrome when it reads the same backward as forward.
+
+        :param x: an integer to check
+        :returns: is `x` palindrome or not
+        """
+        if x < 0:
+            return False
+        abs_x = x
+        power = 1
+        while abs_x >= 10:
+            power *= 10
+            abs_x //= 10
+        abs_x = x
+        while power > 0:
+            if abs_x // power != abs_x % 10:
+                return False
+            abs_x %= power
+            abs_x //= 10
+            power //= 100
+        return True
