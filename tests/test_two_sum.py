@@ -28,8 +28,15 @@ class TestTwoSum(TestCase):
     def test_two_sum(self, solution):
         self.assertEqual(
             solution().twoSum(
-                nums=[2, 7, 11, 15],
+                nums=[2, 7, 7, 11, 15],
+                target=18
+            ),
+            [1, 3]
+        )
+        self.assertEqual(
+            solution().twoSum(
+                nums=[1, 2],
                 target=9
             ),
-            [0, 1]
+            [-1, -1]
         )
