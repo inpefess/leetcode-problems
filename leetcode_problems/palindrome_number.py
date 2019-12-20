@@ -18,7 +18,11 @@
 """
 
 
+# pylint: disable=too-few-public-methods
 class Solution:
+    """ Goes through the digits twice. """
+
+    # pylint: disable=invalid-name, no-self-use
     def isPalindrome(self, x: int) -> bool:
         """
         Determine whether an integer is a palindrome. An integer is a
