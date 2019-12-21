@@ -18,7 +18,7 @@
 """
 from unittest import TestCase
 
-from leetcode_problems.add_two_numbers import ListNode, Solution
+from leetcode_problems.utils import ListNode
 
 
 class TestAddTwoNumbers(TestCase):
@@ -26,9 +26,13 @@ class TestAddTwoNumbers(TestCase):
         self.one = ListNode(2, ListNode(4, ListNode(5)))
         self.two = ListNode(5, ListNode(6, ListNode(4)))
 
-    def test_solution(self):
-        three = ListNode(7, ListNode(0, ListNode(0, ListNode(1))))
+    def test_equal(self):
+        self.assertEqual(self.one, self.one)
+        self.assertNotEqual(self.one, self.two)
+        self.assertNotEqual(self.one, 1)
+
+    def test_repr(self):
         self.assertEqual(
-            Solution().addTwoNumbers(self.one, self.two),
-            three
+            str(self.one),
+            "[2, 4, 5]"
         )

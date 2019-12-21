@@ -18,41 +18,7 @@
 """
 from typing import Optional
 
-
-class ListNode:
-    """ Definition for singly-linked list. """
-    # pylint: disable=redefined-builtin
-    def __init__(self, val: int, next: Optional["ListNode"] = None):
-        """
-
-        :param val: integer value at a node
-        :param next: link to the next node if any
-        """
-        self.val = val
-        self.next = next
-
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, ListNode):
-            return NotImplemented
-        one: Optional["ListNode"] = self
-        two: Optional["ListNode"] = other
-        equal = True
-        while one and two:
-            if one.val == two.val:
-                one = one.next
-                two = two.next
-            else:
-                equal = False
-                break
-        return not (one or two) and equal
-
-    def __repr__(self):
-        node = self
-        list_repr = list()
-        while node:
-            list_repr.append(node.val)
-            node = node.next
-        return str(list_repr if list_repr else [0])
+from leetcode_problems.utils import ListNode
 
 
 # pylint: disable=too-few-public-methods
