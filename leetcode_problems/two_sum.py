@@ -19,8 +19,11 @@
 from typing import Dict, List, Set
 
 
+# pylint: disable=too-few-public-methods
 class Solution:
     """ linear additional memory, linear time """
+
+    # pylint: disable=invalid-name, no-self-use
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         finds two items of a list which sum up to a given target
@@ -45,8 +48,11 @@ class Solution:
         return [-1, -1]
 
 
+# pylint: disable=too-few-public-methods
 class Solution2:
     """ constant additional memory, quadratic time """
+
+    # pylint: disable=invalid-name, no-self-use
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         finds two items of a list which sum up to a given target

@@ -19,8 +19,11 @@
 from typing import Dict
 
 
+# pylint: disable=too-few-public-methods
 class Solution:
     """ Can be copied and pasted to LeetCode site. """
+
+    # pylint: disable=invalid-name, no-self-use
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
         Given a string, find the length of the longest substring without

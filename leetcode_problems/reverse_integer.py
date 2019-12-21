@@ -18,8 +18,11 @@
 """
 
 
+# pylint: disable=too-few-public-methods
 class Solution:
     """ two passes through all digits """
+
+    # pylint: disable=invalid-name, no-self-use
     def reverse(self, x: int) -> int:
         """
         Given a 32-bit signed integer, reverse digits of an integer.

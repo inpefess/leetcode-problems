@@ -21,6 +21,7 @@ from typing import Optional
 
 class ListNode:
     """ Definition for singly-linked list. """
+    # pylint: disable=redefined-builtin
     def __init__(self, val: int, next: Optional["ListNode"] = None):
         """
 
@@ -54,7 +55,9 @@ class ListNode:
         return str(list_repr if list_repr else [0])
 
 
+# pylint: disable=too-few-public-methods
 class Solution:
+    # pylint: disable=invalid-name, no-self-use
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         one: Optional["ListNode"] = l1
         two: Optional["ListNode"] = l2

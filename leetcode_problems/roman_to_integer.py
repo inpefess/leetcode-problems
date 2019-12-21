@@ -20,29 +20,26 @@
 
 # pylint: disable=too-few-public-methods
 class Solution:
-    """ Goes through the digits twice. """
+    """ goes through symbols only once """
+    roman_digits = {
+        "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1,
+    }
 
     # pylint: disable=invalid-name, no-self-use
-    def isPalindrome(self, x: int) -> bool:
+    def romanToInt(self, s: str) -> int:
         """
-        Determine whether an integer is a palindrome. An integer is a
-        palindrome when it reads the same backward as forward.
+        Given a roman numeral, convert it to an integer.
 
-        :param x: an integer to check
-        :returns: is `x` palindrome or not
+        :param s: a Roman numeral within the range from 1 to 3999
+        :return: a corresponding decimal number
         """
-        if x < 0:
-            return False
-        abs_x = x
-        power = 1
-        while abs_x >= 10:
-            power *= 10
-            abs_x //= 10
-        abs_x = x
-        while power > 0:
-            if abs_x // power != abs_x % 10:
-                return False
-            abs_x %= power
-            abs_x //= 10
-            power //= 100
-        return True
+        decimal = 0
+        previous_value = 10000
+        for current_char in s:
+            current_value = self.roman_digits[current_char]
+            if current_value <= previous_value:
+                decimal += current_value
+            else:
+                decimal += current_value - 2 * previous_value
+            previous_value = current_value
+        return decimal
