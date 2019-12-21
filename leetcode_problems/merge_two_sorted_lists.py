@@ -23,39 +23,27 @@ from leetcode_problems.utils import ListNode
 
 # pylint: disable=too-few-public-methods
 class Solution:
-    """ one pass through digits """
+    """ time complexity is O(m+n) """
     # pylint: disable=invalid-name, no-self-use
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
-        find sum of two numbers represented by singly-linked lists of digits
+        Merge two sorted linked lists and return it as a new list.
 
-        :param l1: first addend
-        :param l2: second addend
-        :reutrns: the sum of two numbers in a singly-linked list representation
+        :param l1: one sorted list
+        :param l2: another sorted list
+        :return: merged sorted list
         """
         one: Optional["ListNode"] = l1
         two: Optional["ListNode"] = l2
-        three: Optional["ListNode"] = None
+        three = ListNode(0)
         current_node = three
-        carry = 0
-        while one or two or carry:
-            three_val = carry
-            if one:
-                three_val += one.val
+        while one and two:
+            if one.val <= two.val:
+                current_node.next = ListNode(one.val)
                 one = one.next
-            if two:
-                three_val += two.val
+            else:
+                current_node.next = ListNode(two.val)
                 two = two.next
-            if three_val > 9:
-                carry = 1
-                three_val -= 10
-            else:
-                carry = 0
-            next_node = ListNode(three_val)
-            if current_node:
-                current_node.next = next_node
-                current_node = next_node
-            else:
-                three = next_node
-                current_node = three
-        return three if three else ListNode(0)
+            current_node = current_node.next
+        current_node.next = one if one else two
+        return three.next

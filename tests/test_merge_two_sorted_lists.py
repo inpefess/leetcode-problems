@@ -18,17 +18,18 @@
 """
 from unittest import TestCase
 
-from leetcode_problems.add_two_numbers import ListNode, Solution
+from leetcode_problems.merge_two_sorted_lists import Solution
+from leetcode_problems.utils import ListNode
 
 
-class TestAddTwoNumbers(TestCase):
-    def setUp(self):
-        self.one = ListNode(2, ListNode(4, ListNode(5)))
-        self.two = ListNode(5, ListNode(6, ListNode(4)))
-
+class TestSolution(TestCase):
     def test_solution(self):
-        three = ListNode(7, ListNode(0, ListNode(0, ListNode(1))))
+        one = ListNode(1, ListNode(2, ListNode(4)))
+        two = ListNode(1, ListNode(3, ListNode(4)))
+        three = ListNode(1, ListNode(1, ListNode(2, ListNode(
+            3, ListNode(4, ListNode(4))
+        ))))
         self.assertEqual(
-            Solution().addTwoNumbers(self.one, self.two),
+            Solution().mergeTwoLists(one, two),
             three
         )
