@@ -57,8 +57,16 @@ class ListNode:
 
 # pylint: disable=too-few-public-methods
 class Solution:
+    """ one pass through digits """
     # pylint: disable=invalid-name, no-self-use
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """
+        find sum of two numbers represented by singly-linked lists of digits
+
+        :param l1: first addend
+        :param l2: second addend
+        :reutrns: the sum of two numbers in a singly-linked list representation
+        """
         one: Optional["ListNode"] = l1
         two: Optional["ListNode"] = l2
         three: Optional["ListNode"] = None
