@@ -30,12 +30,21 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python -m unittest
+            coverage run --source leetcode_problems -m unittest discover -s tests/
+            coverage html --fail-under 100
+            mkdir test-results
+            python -m pytest --junitxml test-results/neural-semigroups.xml
       - run:
           name: run linters
           command: |
             . venv/bin/activate
             pylint leetcode_problems
+      - run:
+          name: run type checks
+          command: |
+            . venv/bin/activate
+            mypy --config-file mypy.ini leetcode_problems tests
       - store_artifacts:
-          path: test-reports
-          destination: test-reports
+          path: htmlcov
+      - store_test_results:
+          path: test-results
