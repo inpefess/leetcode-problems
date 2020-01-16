@@ -16,7 +16,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
-from typing import Optional
+from typing import Optional, no_type_check
 
 from leetcode_problems.utils import ListNode
 
@@ -25,6 +25,7 @@ from leetcode_problems.utils import ListNode
 class Solution:
     """ time complexity is O(m+n) """
     # pylint: disable=invalid-name, no-self-use
+    @no_type_check
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
         Merge two sorted linked lists and return it as a new list.
